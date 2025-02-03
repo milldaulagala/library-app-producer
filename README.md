@@ -9,11 +9,11 @@ curl -i \
 -X POST http://localhost:8080/v1/knowledgehubevent
 ```
 
-![Screenshot from 2025-02-03 11-19-58.png](../../Pictures/Screenshots/Screenshot%20from%202025-02-03%2011-19-58.png)
+![Screenshot_1](src/main/resources/screenshots/Screenshot_1.png)
 
 ### KnowledgeHubEvent
 
-![Screenshot from 2025-02-03 11-25-15.png](../../Pictures/Screenshots/Screenshot%20from%202025-02-03%2011-25-15.png)
+![Screenshot_2](src/main/resources/screenshots/Screenshot_2.png)
 
 ### List the topics in a cluster
 
@@ -22,7 +22,7 @@ docker exec --interactive --tty kafka1  \
 kafka-topics --bootstrap-server kafka1:19092 --list
 ```
 
-![Screenshot from 2025-02-03 15-43-16.png](../../Pictures/Screenshots/Screenshot%20from%202025-02-03%2015-43-16.png)
+![Screenshot_3](src/main/resources/screenshots/Screenshot_3.png)
 
 ### Command to describe a specific Kafka topic
 
@@ -32,4 +32,4 @@ kafka-topics --bootstrap-server kafka1:19092 --describe \
 --topic knowledge-hub-events
 ```
 
-![Screenshot from 2025-02-03 15-49-33.png](../../Pictures/Screenshots/Screenshot%20from%202025-02-03%2015-49-33.png)
+![Screenshot_4](src/main/resources/screenshots/Screenshot_4.png)
