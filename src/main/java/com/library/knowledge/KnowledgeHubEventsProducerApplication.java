@@ -1,4 +1,4 @@
-package com.library.knowledge_hub_events_producer;
+package com.library.knowledge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

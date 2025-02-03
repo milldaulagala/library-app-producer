@@ -1,0 +1,9 @@
+{
+  "knowledgeHubEventId": null,
+  "knowledgeHubEventType": "NEW",
+  "book": {
+    "bookId": 1234,
+    "bookName": "Share knowledge and win together",
+    "bookAuthor": "Mill"
+  }
+}

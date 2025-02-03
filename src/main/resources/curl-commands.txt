@@ -1,0 +1,48 @@
+POST WITH-NULL-Knowledge-Hub-Event-ID
+---------------------
+curl -i \
+-d '{"knowledgeHubEventId":null,"knowledgeHubEventType": "NEW","book":{"bookId":4567,"bookName":"Share knowledge and win together","bookAuthor":"Mill"}}' \
+-H "Content-Type: application/json" \
+-X POST http://localhost:8080/v1/knowledgehubevent
+
+PUT WITH ID - 1
+--------------
+curl -i \
+-d '{"knowledgeHubEventId":1,"knowledgeHubEventType": "NEW","book":{"bookId":4567,"bookName":"Share knowledge and win together V2.0","bookAuthor":"Mill"}}' \
+-H "Content-Type: application/json" \
+-X PUT http://localhost:8080/v1/knowledgehubevent
+
+curl -i \
+-d '{"knowledgeHubEventId":2,"knowledgeHubEventType": "NEW","book":{"bookId":4567,"bookName":"Share knowledge and win together V2.0","bookAuthor":"Mill"}}' \
+-H "Content-Type: application/json" \
+-X PUT http://localhost:8080/v1/knowledgehubevent
+
+
+
+PUT WITH ID
+---------------------
+curl -i \
+-d '{"knowledgeHubEventId":1234,"knowledgeHubEventType": "UPDATE","book":{"bookId":4567,"bookName":"Share knowledge and win together","bookAuthor":"Mill"}}' \
+-H "Content-Type: application/json" \
+-X PUT http://localhost:8080/v1/knowledgehubevent
+
+curl -i \
+-d '{"knowledgeHubEventId":7777,"knowledgeHubEventType": "UPDATE","book":{"bookId":4567,"bookName":"Share knowledge and win together","bookAuthor":"Mill"}}' \
+-H "Content-Type: application/json" \
+-X PUT http://localhost:8080/v1/knowledgehubevent
+
+curl -i \
+-d '{"knowledgeHubEventId":2,"knowledgeHubEventType": "UPDATE","book":{"bookId":4567,"bookName":"Share knowledge and win together","bookAuthor":"Mill"}}' \
+-H "Content-Type: application/json" \
+-X PUT http://localhost:8080/v1/knowledgehubevent
+
+
+PUT WITHOUT ID
+---------------------
+curl -i \
+-d '{"knowledgeHubEventId":null,"knowledgeHubEventType": "UPDATE","book":{"bookId":4567,"bookName":"Share knowledge and win together","bookAuthor":"Mill"}}' \
+-H "Content-Type: application/json" \
+-X PUT http://localhost:8080/v1/knowledgehubevent
+
+
+./kafka-topics.sh --create --topic knowledge-hub-events.DLT --replication-factor 1 --partitions 4 --bootstrap-server localhost:9092

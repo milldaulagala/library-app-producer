@@ -1,0 +1,9 @@
+{
+  "knowledgeHubEventId": 1234,
+  "knowledgeHubEventType": "UPDATE",
+  "book": {
+    "bookId": 1234,
+    "bookName": "Share knowledge and win together",
+    "bookAuthor": "Mill"
+  }
+}
