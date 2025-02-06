@@ -1,5 +1,22 @@
 # library-knowledge-hub
 
+![KnowledgeHub-Event-Domain-drawio](src/main/resources/screenshots/KnowledgeHub-Event-Domain.drawio.png)
+
+![KnowledgeHub-Events-Producer-API-drawio](src/main/resources/screenshots/KnowledgeHub-Events-Producer-API.drawio.png)
+
+
+## Set Up Kafka in Local using Docker
+
+![Screenshot_5](src/main/resources/screenshots/Screenshot_5.png)
+
+## Set up a Kafka Cluster with 3 brokers and zookeeper
+
+- Navigate to the path where the **docker-compose-multi-broker.yml** is located and then run the below command.
+
+```
+docker compose -f docker-compose-multi-broker.yml up
+```
+
 ### POST WITH-NULL-Knowledge-Hub-Event-ID
 
 ```
@@ -33,3 +50,51 @@ kafka-topics --bootstrap-server kafka1:19092 --describe \
 ```
 
 ![Screenshot_4](src/main/resources/screenshots/Screenshot_4.png)
+
+#### Log files in Multi Kafka Cluster
+
+- Log files will be created for each partition in each of the broker instance of the Kafka cluster.
+
+-  Login to the container **kafka1**.
+  ```
+  docker exec -it kafka1 bash
+  ```
+-  Login to the container **kafka2**.
+  ```
+  docker exec -it kafka2 bash
+  ```
+
+- Shutdown the kafka cluster
+
+  ```
+  docker compose -f docker-compose-multi-broker.yml down
+  ```
+
+## Log file and related config
+
+- Log into the container.
+
+```
+docker exec -it kafka1 bash
+```
+
+- The config file is present in the below path.
+
+```
+/etc/kafka/server.properties
+```
+
+- The log file is present in the below path.
+
+```
+/var/lib/kafka/data/
+```
+
+### How to view the commit log?
+
+```
+docker exec --interactive --tty kafka1  \
+kafka-run-class kafka.tools.DumpLogSegments \
+--deep-iteration \
+--files /var/lib/kafka/data/test-topic-0/00000000000000000000.log
+```
