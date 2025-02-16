@@ -55,6 +55,8 @@ kafka-topics --bootstrap-server kafka1:19092 --describe \
 --topic knowledge-hub-events
 ```
 
+![Screenshot_4](src/main/resources/screenshots/Screenshot_4.png)
+
 ### Command to Consume Messages from the topic.
 
 ```
@@ -64,7 +66,6 @@ kafka-console-consumer --bootstrap-server kafka1:19092 \
                        --from-beginning
 ```
 
-![Screenshot_4](src/main/resources/screenshots/Screenshot_4.png)
 
 #### Log files in Multi Kafka Cluster
 
@@ -85,7 +86,7 @@ kafka-console-consumer --bootstrap-server kafka1:19092 \
   docker compose -f docker-compose-multi-broker.yml down
   ```
 
-## Log file and related config
+#### Log file and related config
 
 - Log into the container.
 
@@ -105,7 +106,8 @@ docker exec -it kafka1 bash
 /var/lib/kafka/data/
 ```
 
-### How to view the commit log ?
+
+#### How to view the commit log ?
 
 ```
 docker exec --interactive --tty kafka1  \
