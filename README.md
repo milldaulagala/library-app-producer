@@ -17,6 +17,12 @@
 docker compose -f docker-compose-multi-broker.yml up
 ```
 
+## Run KnowledgeHubEventsProducerApplication
+
+```
+mvn spring-boot:run
+```
+
 ### POST WITH-NULL-Knowledge-Hub-Event-ID
 
 ```
@@ -47,6 +53,15 @@ kafka-topics --bootstrap-server kafka1:19092 --list
 docker exec --interactive --tty kafka1  \
 kafka-topics --bootstrap-server kafka1:19092 --describe \
 --topic knowledge-hub-events
+```
+
+### Command to Consume Messages from the topic.
+
+```
+docker exec --interactive --tty kafka1  \
+kafka-console-consumer --bootstrap-server kafka1:19092 \
+                       --topic knowledge-hub-events \
+                       --from-beginning
 ```
 
 ![Screenshot_4](src/main/resources/screenshots/Screenshot_4.png)
@@ -90,7 +105,7 @@ docker exec -it kafka1 bash
 /var/lib/kafka/data/
 ```
 
-### How to view the commit log?
+### How to view the commit log ?
 
 ```
 docker exec --interactive --tty kafka1  \
