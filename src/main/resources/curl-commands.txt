@@ -8,7 +8,7 @@ curl -i \
 PUT WITH ID - 1
 --------------
 curl -i \
--d '{"knowledgeHubEventId":1,"knowledgeHubEventType": "NEW","book":{"bookId":4567,"bookName":"Share knowledge and win together V2.0","bookAuthor":"Mill"}}' \
+-d '{"knowledgeHubEventId":1,"knowledgeHubEventType": "UPDATE","book":{"bookId":4567,"bookName":"Share knowledge and win together V2.0","bookAuthor":"Mill"}}' \
 -H "Content-Type: application/json" \
 -X PUT http://localhost:8080/v1/knowledgehubevent
 
@@ -44,5 +44,3 @@ curl -i \
 -H "Content-Type: application/json" \
 -X PUT http://localhost:8080/v1/knowledgehubevent
 
-
-./kafka-topics.sh --create --topic knowledge-hub-events.DLT --replication-factor 1 --partitions 4 --bootstrap-server localhost:9092
